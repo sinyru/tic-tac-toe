@@ -1,5 +1,7 @@
 'use strict';
 
+// const store = require('../store');
+
 const success = (data) => {
   // handles success
   if (data) {
@@ -12,7 +14,14 @@ const failure = (error) => {
   console.error(error);
 };
 
+const showSuccess = (data)=>{
+  console.log(data.game);
+};
+
+
 module.exports = {
   success,
   failure,
+  showSuccess,
+
 };

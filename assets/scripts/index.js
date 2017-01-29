@@ -2,14 +2,14 @@
 
 const setAPIOrigin = require('../../lib/set-api-origin');
 const config = require('./config');
-const game = require('./game.js');
 const auth = require('./auth/events.js');
+const game = require('./game');
 
 $(() => {
   setAPIOrigin(location, config);
   auth.addHandlers();
+  game.addHandlers();
 });
-
 
 
 
