@@ -47,23 +47,25 @@
 
 
 
+              <form id="sign-in">
+                <fieldset>
+                  <legend>Sign in!</legend>
+                  <label class="email">
+                    Email
+                    <input type="text" name="credentials[email]">
+                  </label>
 
-      <form id="sign-in">
-        <fieldset>
-          <legend>Sign in!</legend>
-          <label class="email">
-            Email
-            <input type="text" name="credentials[email]">
-          </label>
+                  <label class="password">
+                    Password
+                    <input type="password" name="credentials[password]">
+                  </label>
 
-          <label class="password">
-            Password
-            <input type="password" name="credentials[password]">
-          </label>
+                  <input type="submit" name="submit" value="Sign in!" id="btn-sign-in">
+                </fieldset>
+              </form>
 
-          <input type="submit" name="submit" value="Sign in!">
-        </fieldset>
-      </form>
+
+
 
       <form id="change-password">
         <fieldset>
@@ -85,14 +87,16 @@
       <form id="sign-out">
         <fieldset>
           <legend>Sign Out!</legend>
-          <input type="submit" name="submit" value="Sign Out!">
+          <input type="submit" name="submit" value="Sign Out!" id='btn-sign-out'>
         </fieldset>
       </form>
 
 
 
-      <h2></h2>
 
+
+      <h2></h2>
+      <h3></h3>
 
       <div class="gameboard">
         <div class ="cells" id="0"></div>
@@ -106,7 +110,10 @@
         <div class ="cells" id="8"></div>
       </div>
 
-        <button type="submit" class="btn btn-default reset" id="r1">Reset Game!</button>
+        <button class="btn btn-default" id ="create-game">New Game</button>
+        <button class="btn btn-primary" id="game-history">History Log</button>
+
+
 
     </body>
 </html>

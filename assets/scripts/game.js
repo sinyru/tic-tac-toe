@@ -1,18 +1,22 @@
 'use strict';
 
-
+const api = require('./auth/api');
+// const store = require('./store');
+const gameData = require('./gameData');
+// const ui = require('./auth/ui');
+const ui = require('./auth/ui');
 let board = ['','','','','','','','',''],
-    player1 = "x",
-    player2 = "o",
-    currentPlayer = player1;
-let cells = $('.cells'),
+    currentPlayer = 'x',
+    cells = $('.cells'),
     resultTag = $('h2'),
-    resetBtn = $('.reset');
+    resetBtn = $('#create-game');
 
 
 const gameStatus = function () {
     return board.includes("");
 };
+
+let gameOver = false;
 
 const winner = function() {
   if(
@@ -44,61 +48,78 @@ const winner = function() {
   } else if (gameStatus()===false) {
      console.log("draw game");
      resultTag.text("Game Draw!!!");
+     return true;
+  } else {
+    return false;
   }
 };
+
 
 
 const addMove = function (index){
   if (board[index]===""){
     board[index] = currentPlayer;
-    winner();
-    if (winner()===true){
+    gameOver = winner();
+    api.updateGame(gameData.game.id, index, currentPlayer, gameOver);
+    if (gameOver){
       cells.unbind('click');
     }
-    if (currentPlayer===player1){
-      currentPlayer=player2;
+    if (currentPlayer==='x'){
+      currentPlayer='o';
     } else {
-      currentPlayer=player1;
+      currentPlayer='x';
     }
   } else {
     console.log("pick another place");
   }
+
 };
 
 
 
 
-const reset = function (){
+const reset = function (event){
+  event.preventDefault();
   for(let i=0; i<board.length; i++){
     board[i] = '';
     $('.cells').text('');
     resultTag.text('');
     currentPlayer = 'x';
   }
+  api.createBoard()
+  .then((response) => {
+    gameData.game = response.game;
+  })
+  .then(ui.success)
+  .catch(ui.failure)
+  ;
   cells.on('click', (event)=>{
+    event.preventDefault();
     if($(event.target).text()===""){
       $(event.target).text(currentPlayer);
-      addMove(event.target.id);
       console.log(board);
+      addMove(parseInt(event.target.id));
     }
   });
 };
 
 
-cells.on('click', (event)=>{
-  if($(event.target).text()===""){
-    $(event.target).text(currentPlayer);
-    addMove(event.target.id);
-    console.log(board);
-
-  }
-});
 
 
 
-resetBtn.on('click', ()=> {
-  reset();
-});
+// cells.on('click', (event)=>{
+//   if($(event.target).text()===""){
+//     $(event.target).text(currentPlayer);
+//     addMove(parseInt(event.target.id));
+//     console.log(board);
+//
+//   }
+// });
+
+
+const addHandlers =() => {
+  resetBtn.on('click', reset);
+};
 
 
 
@@ -108,5 +129,5 @@ module.exports = {
   addMove,
   reset,
   currentPlayer,
-  resetBtn
+  addHandlers,
 };
