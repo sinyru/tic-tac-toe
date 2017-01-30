@@ -12,6 +12,38 @@ $(() => {
 });
 
 
+$('#change-password').hide();
+$('#sign-out').hide();
+$('.gameboard').hide();
+$('#create-game').hide();
+$('#game-history').hide();
+$('h2').hide();
+
+$('#btn-sign-in').on('click', ()=>{
+  $('#sign-in').hide();
+  $('#modal-sign-up').hide();
+  $('#create-game').show();
+  $('#game-history').show();
+  $('#change-password').show();
+  $('#sign-out').show();
+  $('h2').show();
+});
+
+$('#btn-sign-out').on('click', ()=>{
+  $('#change-password').hide();
+  $('#sign-out').hide();
+  $('.gameboard').hide();
+  $('#create-game').hide();
+  $('#game-history').hide();
+  $('#sign-in').show();
+  $('#modal-sign-up').show();
+  $('h3').text("");
+  $('h2').text("");
+});
+
+$('#create-game').on('click', ()=>{
+  $('.gameboard').show();
+});
 
 
 
