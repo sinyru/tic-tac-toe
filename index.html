@@ -14,14 +14,14 @@
     <body class="container-fluid">
       <h1>TIC TAC TOE!</h1>
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg" id="modal-sign-up">Sign-Up</button>
 
         <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <form id="sign-up">
                 <fieldset>
-                  <legend>Sign up!</legend>
+                  <legend>Please Fill Everything!</legend>
                   <label class="email">
                     Email
                     <input type="text" name="credentials[email]">
@@ -47,22 +47,22 @@
 
 
 
-              <form id="sign-in">
-                <fieldset>
-                  <legend>Sign in!</legend>
-                  <label class="email">
-                    Email
-                    <input type="text" name="credentials[email]">
-                  </label>
+          <form id="sign-in">
+            <fieldset>
+              <legend>Sign in!</legend>
+              <label class="email">
+                Email
+                <input type="text" name="credentials[email]">
+              </label>
 
-                  <label class="password">
-                    Password
-                    <input type="password" name="credentials[password]">
-                  </label>
+              <label class="password">
+                Password
+                <input type="password" name="credentials[password]">
+              </label>
 
-                  <input type="submit" name="submit" value="Sign in!" id="btn-sign-in">
-                </fieldset>
-              </form>
+              <input type="submit" name="submit" value="Sign in!" id="btn-sign-in">
+            </fieldset>
+          </form>
 
 
 
@@ -86,7 +86,6 @@
 
       <form id="sign-out">
         <fieldset>
-          <legend>Sign Out!</legend>
           <input type="submit" name="submit" value="Sign Out!" id='btn-sign-out'>
         </fieldset>
       </form>

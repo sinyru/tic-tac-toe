@@ -14,8 +14,8 @@ const failure = (error) => {
   console.error(error);
 };
 
-const showSuccess = (data)=>{
-  console.log(data.game);
+const showSuccess = (data) => {
+  $('h3').text("You have played " + data.games.length + " games!");
 };
 
 

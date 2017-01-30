@@ -70,7 +70,7 @@ const onSignOut = function (event) {
 const onShowHistory = function (event) {
   event.preventDefault();
   api.showHistory()
-  .then(ui.success)
+  .then(ui.showSuccess)
   .catch(ui.failure)
   ;
 };

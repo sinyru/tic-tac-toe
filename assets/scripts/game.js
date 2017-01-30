@@ -104,19 +104,6 @@ const reset = function (event){
 };
 
 
-
-
-
-// cells.on('click', (event)=>{
-//   if($(event.target).text()===""){
-//     $(event.target).text(currentPlayer);
-//     addMove(parseInt(event.target.id));
-//     console.log(board);
-//
-//   }
-// });
-
-
 const addHandlers =() => {
   resetBtn.on('click', reset);
 };
