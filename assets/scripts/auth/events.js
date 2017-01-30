@@ -6,8 +6,8 @@ const api = require('./api');
 const ui = require('./ui');
 
 const store = require('../store');
-const gameData = require('../gameData');
-const game=require('../game');
+// const gameData = require('../gameData');
+// const game=require('../game');
 
 const onSignUp = function (event) {
   event.preventDefault();
